@@ -1,10 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
 from sklearn import datasets
+from scipy.cluster.hierarchy import dendrogram, linkage
 
 def generate_data(n_samples, flagc):
-    
     if flagc == 1:
         random_state = 365
         X, y = datasets.make_blobs(n_samples=n_samples, random_state=random_state)
@@ -33,25 +32,21 @@ def generate_data(n_samples, flagc):
         
     return X
 
-def plot_clusters(X, labels, centers):
-    plt.figure(figsize=(8, 6))
-    plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis', s=50, alpha=0.5)
-    plt.scatter(centers[:, 0], centers[:, 1], c='red', s=200, alpha=0.8)
-    plt.xlabel('Feature 1')
-    plt.ylabel('Feature 2')
-    plt.title('Clustered Data')
-    plt.colorbar()
-    plt.show()
 
 n_samples = 500
 flagc = 1  
 X = generate_data(n_samples, flagc)
 
 if len(X) > 0:
-    kmeans = KMeans(n_clusters=3)  
-    kmeans.fit(X)
-    labels = kmeans.labels_
-    centers = kmeans.cluster_centers_
-    plot_clusters(X, labels, centers)
+    # Primjena hijerarhijskog grupiranja
+    linkage_matrix = linkage(X, method='single')  # Promijenite 'single' u druge metode ako želite
+
+    # Prikaz dendrograma
+    plt.figure(figsize=(12, 8))
+    dendrogram(linkage_matrix)
+    plt.title('Dendrogram')
+    plt.xlabel('Samples')
+    plt.ylabel('Distance')
+    plt.show()
 else:
     print("Invalid flagc value.")
