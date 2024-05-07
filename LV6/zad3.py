@@ -39,7 +39,7 @@ X = generate_data(n_samples, flagc)
 
 if len(X) > 0:
     # Primjena hijerarhijskog grupiranja
-    linkage_matrix = linkage(X, method='single')  # Promijenite 'single' u druge metode ako želite
+    linkage_matrix = linkage(X, method='single') 
 
     # Prikaz dendrograma
     plt.figure(figsize=(12, 8))
