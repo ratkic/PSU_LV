@@ -12,7 +12,7 @@ height, width, depth = image_array.shape
 image_array_2d = image_array.reshape((height * width, depth))
 
 # Primjena KMeans algoritma za kvantizaciju boja
-n_colors = 8  # Možete promijeniti broj boja ovisno o potrebama
+n_colors = 8  
 kmeans = KMeans(n_clusters=n_colors)
 kmeans.fit(image_array_2d)
 labels = kmeans.predict(image_array_2d)
