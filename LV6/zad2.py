@@ -34,7 +34,6 @@ def generate_data(n_samples, flagc):
     return X
 
 def calculate_inertia(X, max_clusters):
-    # Calculate inertia for different number of clusters
     inertias = []
     for k in range(1, max_clusters + 1):
         kmeans = KMeans(n_clusters=k)
@@ -43,14 +42,13 @@ def calculate_inertia(X, max_clusters):
     return inertias
 
 n_samples = 500
-flagc = 1  # Change this value from 1 to 5 to generate data differently
+flagc = 1  
 X = generate_data(n_samples, flagc)
 
 if len(X) > 0:
     max_clusters = 20
     inertias = calculate_inertia(X, max_clusters)
     
-    # Plotting
     plt.figure(figsize=(10, 6))
     plt.plot(range(1, max_clusters + 1), inertias, marker='o')
     plt.title('KMeans Inertia')
