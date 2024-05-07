@@ -8,7 +8,7 @@ imageNew = mpimg.imread('example_grayscale.png')
 
 # Pretvaranje slike u 2D matricu piksela
 height, width = imageNew.shape
-X = imageNew.reshape((-1, 1))  # matricu oblika (n_sample, n_feature)
+X = imageNew.reshape((-1, 1))  # matrica oblika (n_sample, n_feature)
 
 # Primjena KMeans algoritma za kvantizaciju boja
 n_clusters = [2, 5, 10, 20]  
