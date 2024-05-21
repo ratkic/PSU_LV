@@ -83,4 +83,4 @@ print("Matrica zabune za skup podataka za testiranje:")
 plot_confusion_matrix(test_conf_matrix, class_names)
 
 # Komentari
-# Matriku zabune i točnost možete koristiti za dalju analizu performansi modela.
+# Matrica zabune pruža detaljan uvid u to koje klase su pogrešno klasificirane, što može pomoći u daljoj analizi i poboljšanju modela.
